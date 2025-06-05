@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wi-Fi Hacking Course - Module 14: Router Firmware Exploits</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #0f1117;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      color: #38bdf8;
+      font-weight: 800;
+      font-size: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    p {
+      margin-top: 10px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      display: block;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 14: Router Firmware Exploits</h1>
+  </header>
+  <div class="container">
+    <h2>🔓 What Are Router Firmware Exploits?</h2>
+    <p>Think of your router’s firmware as its brain — it tells the router how to behave. Now imagine sneaking into that brain, rewriting its thoughts, and controlling the whole network without anyone noticing. That’s router firmware hacking in a nutshell! 🧠💥</p>
+
+    <h2>🧰 Tools and Resources</h2>
+    <ul>
+      <li><code>binwalk</code> — For firmware analysis</li>
+      <li><code>firmware-mod-kit</code> — Extract and modify firmware</li>
+      <li><code>RouterSploit Framework</code> — Specialized router exploit framework</li>
+      <li>OpenWRT, DD-WRT — Custom firmware to understand normal vs hacked</li>
+    </ul>
+
+    <h2>📜 How Firmware Exploits Work</h2>
+    <p>Hackers:</p>
+    <ul>
+      <li>Download the firmware image from the manufacturer’s website.</li>
+      <li>Extract and analyze it for vulnerabilities (backdoors, weak passwords, unpatched bugs).</li>
+      <li>Modify the firmware to include their own backdoors or malware.</li>
+      <li>Flash the router with this malicious firmware (physically or remotely if router is vulnerable).</li>
+      <li>Gain persistent control over the network traffic.</li>
+    </ul>
+
+    <h2>🔎 Real-World Examples</h2>
+    <p><strong>VPNFilter Malware (2018):</strong> Infecting hundreds of thousands of routers worldwide, allowing attackers to monitor and manipulate traffic — basically turning your router into a spy device.</p>
+    <p><strong>Backdoor in Netgear routers:</strong> A hidden admin account discovered that gave attackers easy access.</p>
+
+    <h2>⚙️ Hands-On Demo: Basic Firmware Extraction</h2>
+    <p>1. Download firmware from router manufacturer:</p>
+    <pre><code>wget https://downloads.example-router.com/firmware.bin</code></pre>
+    <p>2. Use <code>binwalk</code> to analyze the firmware:</p>
+    <pre><code>binwalk firmware.bin</code></pre>
+    <p>3. Extract firmware components:</p>
+    <pre><code>binwalk -e firmware.bin</code></pre>
+    <p>4. Explore extracted files, find config files or scripts you can modify.</p>
+
+    <h2>🛡️ Defense and Prevention</h2>
+    <ul>
+      <li>Always update your router’s firmware from trusted sources.</li>
+      <li>Change default passwords immediately after setup.</li>
+      <li>Disable remote management unless absolutely needed.</li>
+      <li>Monitor router behavior for unusual activity (slowdowns, strange logs).</li>
+    </ul>
+
+    <h2>😂 Humor Time</h2>
+    <p>Router: “I’m just a simple device.”<br>Hacker: “Say that after I’m running my secret party inside you.” 🕵️‍♂️🎉</p>
+
+    <h2>📌 Summary</h2>
+    <ul>
+      <li>Firmware hacking targets router’s brain for deep control.</li>
+      <li>Tools like binwalk and RouterSploit help find and exploit flaws.</li>
+      <li>Keep firmware updated and passwords strong to stay safe.</li>
+    </ul>
+
+    <p>Next up: <strong>Module 15: Post-Exploitation Techniques</strong> — what you do after you’re inside the network. Time to be the puppet master! 🎭</p>
+
+    <div class="navigation-buttons">
+      <a href="module13.html">&laquo; Previous</a>
+      <a href="module15.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 8: Sniffing & MITM Attacks</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 8: Sniffing & MITM Attacks</h1>
+  </header>
+  <div class="container">
+    <h2>👃 Module 8: Sniffing & MITM Attacks</h2>
+    <p>Alright agents, gloves on. Time to go full spy-mode. Welcome to the magical world of <span class="highlight">sniffing</span> and <span class="highlight">Man-in-the-Middle (MITM)</span> attacks — where you eavesdrop on network traffic like a nosy neighbor with night-vision goggles. 🕶️🕵️‍♂️</p>
+
+    <h2>🌐 What is Sniffing?</h2>
+    <p>Sniffing is the process of capturing and analyzing packets flowing across a network. Think of it like wiretapping the internet. Every click, scroll, and login? You see it.</p>
+
+    <h2>🧠 Real World Analogy</h2>
+    <p>Imagine Alice sends a letter to Bob, but you're the sneaky mailman who opens it, reads it, then reseals it and delivers it. That’s <strong>sniffing</strong>.</p>
+
+    <h2>🔧 Tools You’ll Use</h2>
+    <ul>
+      <li><code>Wireshark</code> – The king of packet analyzers</li>
+      <li><code>tcpdump</code> – CLI-based, super powerful</li>
+      <li><code>airodump-ng</code> – Captures Wi-Fi handshakes and traffic</li>
+    </ul>
+
+    <h2>📶 Sniffing in Monitor Mode</h2>
+    <p>You need to be in <span class="highlight">monitor mode</span> to sniff Wi-Fi packets. Like putting on Harry Potter’s invisibility cloak 👻.</p>
+
+    <pre><code>airmon-ng start wlan0
+airodump-ng wlan0mon</code></pre>
+
+    <h2>🤹‍♂️ What Can You Capture?</h2>
+    <ul>
+      <li>Wi-Fi handshakes (for cracking passwords)</li>
+      <li>Unencrypted HTTP traffic</li>
+      <li>Metadata (device names, MACs, signal strength)</li>
+    </ul>
+
+    <h2>👾 What is a MITM Attack?</h2>
+    <p>A <strong>Man-in-the-Middle</strong> (MITM) attack is where you position yourself between two devices so you can read or modify their messages. Kinda like listening to both sides of a phone call while sitting in the bushes outside. 🌳📞</p>
+
+    <h2>⚙️ Common MITM Techniques</h2>
+    <ul>
+      <li><code>ARP spoofing</code> – Tells the victim "Hey, I’m the router"</li>
+      <li><code>DNS spoofing</code> – Redirects traffic to fake sites</li>
+      <li><code>SSL stripping</code> – Downgrades HTTPS to HTTP (yes, scary)</li>
+    </ul>
+
+    <h2>🧪 Real Example: Bob Orders Pizza</h2>
+    <p>Bob wants pizza. He logs into <code>bestpizza.com</code>. You're doing MITM. You redirect him to <code>pizzaforhackers.com</code>, which looks identical. He orders. You now know his address... and his favorite toppings. 🍕</p>
+
+    <h2>📡 MITM Setup Basics (with bettercap)</h2>
+    <pre><code>bettercap -iface wlan0
+set arp.spoof.targets 192.168.1.5
+set net.sniff.verbose true
+arp.spoof on
+net.sniff on</code></pre>
+
+    <h2>⚠️ Ethical Reminder</h2>
+    <p>Sniffing and MITM should <strong>never</strong> be done on public or unauthorized networks. Practice only in labs or with permission. You’re a student, not a villain. 🧑‍🏫</p>
+
+    <h2>📦 Summary</h2>
+    <ul>
+      <li>Sniffing = capturing packets</li>
+      <li>MITM = placing yourself between communication</li>
+      <li>Tools = Wireshark, Bettercap, airmon-ng, tcpdump</li>
+    </ul>
+
+    <p>💥 That wraps up Module 8! In <strong>Module 9 – Packet Injection & Fun with Frames</strong>, we’ll shoot packets into the air like Nerf darts. Get ready to inject chaos. 🔫📶</p>
+
+    <div class="navigation-buttons">
+      <a href="module7.html">&laquo; Previous</a>
+      <a href="module9.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

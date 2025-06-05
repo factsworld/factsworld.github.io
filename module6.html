@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 6: Evil Twin Attacks</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 6: Evil Twin Attacks</h1>
+  </header>
+  <div class="container">
+    <h2>🎭 Module 6: Evil Twin Attacks – Becoming the Impostor</h2>
+    <p>Imagine creating a Wi-Fi network that looks exactly like the one people trust... but it’s yours. 😈 Welcome to the world of <span class="highlight">Evil Twin Attacks</span> — where deception is the weapon.</p>
+
+    <h2>🧠 What Is an Evil Twin Attack?</h2>
+    <p>An Evil Twin is a rogue Wi-Fi access point set up to mimic a legitimate one. When users connect, they think they’re on the real deal, but in reality, they’re handing over their data to you — the evil barista. ☕</p>
+
+    <h2>🛠 Tools of the Trade</h2>
+    <ul>
+      <li><code>airbase-ng</code> – to create a fake AP</li>
+      <li><code>dnsmasq</code> – for DHCP/DNS redirection</li>
+      <li><code>hostapd</code> – more advanced fake AP with better control</li>
+      <li><code>wifi-phisher</code> – automated evil twin + phishing framework</li>
+    </ul>
+
+    <h2>💡 Scenario: Bob Connects to Free Coffee Shop Wi-Fi</h2>
+    <p>You name your evil AP <code>COFFEE_FREEWIFI</code>. Bob’s device auto-connects. You redirect him to a fake login page asking for the Wi-Fi password (or worse, his email). He types <code>boblovesespresso</code>. Boom. 🎯</p>
+
+    <h2>⚙️ Using WiFi-Pumpkin3 or WiFi-Phisher (Recommended for Beginners)</h2>
+    <p>These tools automate Evil Twin attacks and provide phishing templates.</p>
+    <pre><code>sudo wifi-phisher</code></pre>
+    <p>Select your wireless adapter and pick the attack type (e.g., captive portal phishing).</p>
+    <div class="note">📱 Tip: Make sure your Wi-Fi adapter supports AP (Access Point) mode!</div>
+
+    <h2>⚠️ Ethics & Warnings</h2>
+    <ul>
+      <li>Always use a separate device or test network</li>
+      <li>Never target real users without consent</li>
+      <li>This attack can be illegal in many countries. Use for education and research only.</li>
+    </ul>
+
+    <h2>🔍 What Can You Do Once They Connect?</h2>
+    <ul>
+      <li>Phishing for credentials</li>
+      <li>Traffic sniffing (e.g., unencrypted HTTP sites)</li>
+      <li>Inject malicious updates/pages</li>
+    </ul>
+
+    <h2>📦 Summary</h2>
+    <ul>
+      <li>Evil Twin = fake AP that looks legit</li>
+      <li>Used to trick users into connecting & giving up info</li>
+      <li>Tools like WiFi-Phisher make it beginner-friendly</li>
+      <li>Ethics and legality matter: be a hacker, not a criminal</li>
+    </ul>
+
+    <p>🎉 Great work! Next up in <strong>Module 7 – Captive Portals & Phishing Tricks</strong>, we’ll go deeper into how to craft those fake login pages and make them look <span class="highlight">super real</span>. 🕸️</p>
+
+    <div class="navigation-buttons">
+      <a href="module5.html">&laquo; Previous</a>
+      <a href="module7.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

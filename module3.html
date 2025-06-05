@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 3: Setting Up Your Lab</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #4ade80;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #60a5fa;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #4ade80;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #facc15;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 3: Setting Up Your Lab</h1>
+  </header>
+  <div class="container">
+    <h2>🛠️ Module 3: Building Your Hacking Lab</h2>
+    <p>Ready to go from Wi-Fi noob to packet wizard? First, we need to set up our secret lab — no white coats required, but a hoodie might help the hacker vibe 😎.</p>
+
+    <h2>💻 Step 1: Choosing Your OS (Kali vs Parrot)</h2>
+    <p>We're going to use a Linux-based OS that comes preloaded with hacking tools. Let’s meet the two contenders:</p>
+    <ul>
+      <li><strong>Kali Linux</strong>: The OG pentesting distro. Backed by Offensive Security. Clean, focused, tons of tutorials available. <span class="highlight">We'll use Kali in this course.</span></li>
+      <li><strong>Parrot Security OS</strong>: A little fancier. Lightweight, has anonymous tools built-in. Great for privacy nerds.</li>
+    </ul>
+    <div class="note">💡 Pro tip: You can dual-boot, run it in VirtualBox/VMWare, or live boot with a USB. For best performance, install directly if you can.</div>
+
+    <h2>📶 Step 2: Choosing a Wi-Fi Adapter</h2>
+    <p>This is <strong>crucial</strong>. Not all Wi-Fi adapters can go into monitor mode or inject packets (like trying to fly a plane with a bicycle). You need a chipset that supports it.</p>
+
+    <h3>✅ Recommended Adapters (2025)</h3>
+    <ul>
+      <li><strong>Cheap:</strong> <code>Alfa AWUS036NHA</code> – A legend. Based on Atheros AR9271 chipset. Works flawlessly with Kali.</li>
+      <li><strong>Mid:</strong> <code>TP-Link TL-WN722N v1</code> – Careful: Only v1 works! Later versions use Realtek chipsets (avoid them).</li>
+      <li><strong>Pro:</strong> <code>Alfa AWUS036ACH</code> – Dual band, high power. Ideal if you want to flex and capture 5GHz handshakes too.</li>
+    </ul>
+    <div class="note">🧠 Tip: If your adapter doesn’t support monitor mode, you’ll be stuck watching traffic from the sidewalk — not hacking it.</div>
+
+    <h2>⚙️ Step 3: Installing Required Tools</h2>
+    <p>Kali comes with most tools built-in. But just in case, here's how to update and grab essentials:</p>
+    <pre><code>sudo apt update && sudo apt upgrade -y
+sudo apt install aircrack-ng wireshark net-tools hashcat hcxdumptool hcxtools -y</code></pre>
+
+    <h2>🧪 Step 4: Test Monitor Mode</h2>
+    <p>Plug in your Wi-Fi adapter and run this:</p>
+    <pre><code>iwconfig</code></pre>
+    <p>You should see something like <code>wlan0</code>. Now try:</p>
+    <pre><code>sudo airmon-ng start wlan0</code></pre>
+    <p>If you see <code>wlan0mon</code>, congrats — your adapter is a hacker’s friend. If not, time to shop again or check drivers.</p>
+
+    <h2>🏗️ Step 5: Creating a Safe Test Environment</h2>
+    <p>Never test on networks you don’t own or have permission to test. We suggest:</p>
+    <ul>
+      <li>Setting up a second router at home (cheap ones work fine)</li>
+      <li>Giving it a known password to simulate cracking</li>
+      <li>Experimenting on it without fear of breaking anything</li>
+    </ul>
+
+    <div class="note">🔐 Ethics Reminder: Always hack responsibly. This course is about learning, not law-breaking. We’re teaching skills, not promoting chaos.</div>
+
+    <h2>✅ Summary</h2>
+    <ul>
+      <li>We're using <strong>Kali Linux</strong> for this course (but Parrot is cool too)</li>
+      <li>Choose a good adapter that supports monitor mode + injection</li>
+      <li>Install key tools like <code>aircrack-ng</code>, <code>hcxdumptool</code>, and <code>Wireshark</code></li>
+      <li>Create your own safe test network to practice everything</li>
+    </ul>
+
+    <p>Up next: <strong>Module 4 – Packet Sniffing & Handshake Capture</strong> where the real hacking begins 🔥</p>
+
+    <div class="navigation-buttons">
+      <a href="module3.html">&laquo; Previous</a>
+      <a href="module4.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

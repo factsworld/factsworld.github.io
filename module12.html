@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 12: WPS Attacks</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 12: WPS Attacks</h1>
+  </header>
+  <div class="container">
+    <h2>🔓 Module 12: WPS Attacks – Breaking the Push Button Party</h2>
+    <p>WPS stands for <span class="highlight">Wi-Fi Protected Setup</span>. It's that magical button on your router that was meant to help grandma connect her printer... but accidentally left the front door wide open for hackers. 🧓📶</p>
+
+    <h2>🔍 What Is WPS?</h2>
+    <p>It’s a feature that allows devices to connect with the press of a button or by entering an 8-digit PIN. Guess what? That PIN is <em>bruteforceable</em>. And routers don’t even lock out after 1000 tries. 😬</p>
+
+    <h2>🛠️ Tools Needed</h2>
+    <ul>
+      <li><code>airmon-ng</code> – For monitor mode</li>
+      <li><code>wash</code> – Scan for WPS-enabled networks</li>
+      <li><code>reaver</code> – The star of the show (PIN bruteforcer)</li>
+    </ul>
+
+    <h2>📡 Scan for WPS Networks</h2>
+    <pre><code>wash -i wlan0mon</code></pre>
+    <p>This will list nearby networks with WPS enabled. Look for ones that say <code>WPS Locked: No</code>.</p>
+
+    <h2>💣 Launching the Attack</h2>
+    <pre><code>reaver -i wlan0mon -b [BSSID] -vv</code></pre>
+    <p>This command will start bruteforcing the WPS PIN. <code>-vv</code> gives verbose output so you can enjoy the show. 🍿</p>
+
+    <h2>⏱️ How Long It Takes?</h2>
+    <p>Usually 2–8 hours depending on the router and signal strength. So… set it up, grab coffee, and come back later. ☕</p>
+
+    <h2>🎁 Result?</h2>
+    <p>If successful, Reaver will give you the <strong>WPA PSK</strong> (the actual Wi-Fi password). From there, you’re in!</p>
+
+    <h2>🚨 Real-World Reminder</h2>
+    <div class="note">💡 Only a few routers today still have WPS enabled and vulnerable. But it still exists, especially on older routers or default setups. Look for routers with no rate limiting and party on! 🎉</div>
+
+    <h2>😂 Funny Bit</h2>
+    <p>Student: "This router gave me the password in 12 minutes!"<br>Instructor: "It wanted to be hacked. That's router consent. 🤝"</p>
+
+    <h2>🛑 Legal Tip</h2>
+    <p>Only test WPS attacks on your own network or authorized test labs. Never try this at your neighbor's house, even if their Wi-Fi is called 'FreeNet'. 🍕</p>
+
+    <h2>📌 Summary</h2>
+    <ul>
+      <li>WPS can be bruteforced using tools like Reaver</li>
+      <li>WPS PIN is only 8 digits and easily guessed</li>
+      <li>Great for testing security of old routers</li>
+    </ul>
+
+    <p>🥷 You're now a PIN-cracking ninja. Next up? <strong>Module 13: Evil Twin Attacks</strong> – it’s like cloning Wi-Fi... but evil. 😈</p>
+
+    <div class="navigation-buttons">
+      <a href="module11.html">&laquo; Previous</a>
+      <a href="module13.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

