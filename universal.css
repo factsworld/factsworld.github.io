@@ -1,0 +1,25 @@
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .navigation-buttons a {
+    text-decoration: none;
+    width: 150px;
+    text-align: center;
+    padding: 12px 0;
+    background: #4ade80;
+    color: #0f1117;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .navigation-buttons a:hover {
+    background: #3ecf70;
+  }
+  
