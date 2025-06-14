@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wi-Fi Hacking Course – Final Quiz Challenge</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background: #0f1117;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    header h1 {
+      color: #38bdf8;
+      font-weight: 800;
+      font-size: 2rem;
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .question {
+      background: #1a1e2a;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 10px #000;
+    }
+    .question p {
+      margin: 0 0 10px 0;
+    }
+    .question input {
+      width: 75%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+      background: #2c2f3b;
+      color: #eaeaea;
+    }
+    .question button {
+      margin: 10px 5px 0 0;
+      padding: 8px 12px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .question button:hover {
+      background-color: #2563eb;
+    }
+    .hint,
+    .answer-reveal {
+      display: none;
+      margin-top: 10px;
+      color: #fbbf24;
+      font-style: italic;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .score {
+      font-size: 1.5rem;
+      color: #34d399;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .finish-btn {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .finish-btn button {
+      padding: 12px 24px;
+      background: #10b981;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+    .finish-btn button:hover {
+      background: #059669;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wi-Fi Hacking Course – Final Quiz Challenge</h1>
+  </header>
+
+  <div class="container">
+    <h2>🚀 Ready for your mission?</h2>
+    <p>
+      Answer the questions below. If you get stuck, hit the Hint. You’ve trained
+      for this. Let’s hack the quiz. 🧠
+    </p>
+
+    <!-- Quiz Container (Questions are injected by JavaScript) -->
+    <div id="quiz"></div>
+
+    <!-- Finish Button -->
+    <div class="finish-btn">
+      <button onclick="showScore()">🎉 Finish Quiz</button>
+    </div>
+
+    <!-- Final Score Display -->
+    <div class="score" id="score"></div>
+  </div>
+
+  <script>
+    // ────────────────────────────────────────────────────────────────────────
+    // 1) ALL QUIZ DATA (20 Questions)
+    // ────────────────────────────────────────────────────────────────────────
+    const quizData = [
+      {
+        question: "What tool is used to capture Wi-Fi packets in Kali Linux?",
+        answer: "airodump-ng",
+        hint: "It's part of the Aircrack-ng suite.",
+      },
+      {
+        question: "What mode allows packet injection and capture?",
+        answer: "monitor",
+        hint: "Not managed mode... 🕵️‍♂️",
+      },
+      {
+        question: "Command to stop NetworkManager service?",
+        answer: "systemctl stop NetworkManager",
+        hint: "Think systemd + service name.",
+      },
+      {
+        question: "Which tool cracks WPA handshakes?",
+        answer: "aircrack-ng",
+        hint: "Used after capturing the handshake.",
+      },
+      {
+        question: "Tool to deauthenticate a user?",
+        answer: "aireplay-ng",
+        hint: "Think... replay attacks.",
+      },
+      {
+        question: "Wireshark is mainly used for?",
+        answer: "packet analysis",
+        hint: "It sniffs packets and dives deeper.",
+      },
+      {
+        question: "Parrot OS is an alternative to?",
+        answer: "kali linux",
+        hint: "Both are Debian-based hacking distros.",
+      },
+      {
+        question: "Cheap Wi-Fi adapter brand beginners use?",
+        answer: "alfa",
+        hint: "Starts with A, ends with A (commonly used).",
+      },
+      {
+        question: "Default interface name for Wi-Fi in Linux?",
+        answer: "wlan0",
+        hint: "Starts with 'wl' for wireless.",
+      },
+      {
+        question: "Tool used to clone access point?",
+        answer: "fluxion",
+        hint: "Sounds like a Marvel villain.",
+      },
+      {
+        question: "Tool that creates fake captive portals?",
+        answer: "wifiphisher",
+        hint: "Phishing + WiFi = wifiphisher.",
+      },
+      {
+        question: "Protocol that handshakes happen on?",
+        answer: "wpa2",
+        hint: "Most common Wi-Fi security protocol in use.",
+      },
+      {
+        question: "Can 5GHz Wi-Fi be hacked?",
+        answer: "yes",
+        hint: "It’s harder, but still possible.",
+      },
+      {
+        question: "Term for sniffing packets without connecting?",
+        answer: "passive sniffing",
+        hint: "You’re just eavesdropping, not injecting.",
+      },
+      {
+        question: "Man-in-the-middle attacks are also called?",
+        answer: "mitm",
+        hint: "A short acronym (M I T M).",
+      },
+      {
+        question: "Which tool visualizes network maps?",
+        answer: "kismet",
+        hint: "Starts with K, often used in wardriving.",
+      },
+      {
+        question: "What do we use to change MAC address?",
+        answer: "macchanger",
+        hint: "Changes your NIC’s identity.",
+      },
+      {
+        question: "Wi-Fi security cracking is legal?",
+        answer: "no",
+        hint: "Only if it’s your network or you have explicit permission.",
+      },
+      {
+        question: "What's better, dictionary or brute force?",
+        answer: "dictionary",
+        hint: "Faster if you have strong wordlists.",
+      },
+      {
+        question: "What's the first step in hacking Wi-Fi?",
+        answer: "reconnaissance",
+        hint: "Always know your target first.",
+      },
+    ];
+
+    // ────────────────────────────────────────────────────────────────────────
+    // 2) STATE VARIABLES
+    // ────────────────────────────────────────────────────────────────────────
+    let score = 0;
+    // Tracks which questions have already been answered correctly:
+    const answeredCorrectly = new Array(quizData.length).fill(false);
+    // Tracks which questions have been “revealed” via Show Answer button:
+    const answerRevealed = new Array(quizData.length).fill(false);
+
+    // ────────────────────────────────────────────────────────────────────────
+    // 3) BUILD QUIZ HTML STRUCTURE
+    // ────────────────────────────────────────────────────────────────────────
+    const quizContainer = document.getElementById("quiz");
+
+    quizData.forEach((item, i) => {
+      // Create a wrapping div for each question
+      const questionDiv = document.createElement("div");
+      questionDiv.className = "question";
+
+      // Build inner HTML for question, input, buttons, hint, answer-reveal, feedback
+      questionDiv.innerHTML = `
+        <p><strong>Q${i + 1}:</strong> ${item.question}</p>
+        <input type="text" id="answer${i}" placeholder="Type your answer here" autocomplete="off" />
+        <button onclick="checkAnswer(${i}, '${item.answer.toLowerCase()}')">Submit</button>
+        <button id="hintBtn${i}" onclick="document.getElementById('hint${i}').style.display='block'">Hint?</button>
+        <button id="showBtn${i}" onclick="showAnswer(${i}, '${item.answer.toLowerCase()}')">Show Answer</button>
+        <div id="hint${i}" class="hint">💡 ${item.hint}</div>
+        <div id="answerReveal${i}" class="answer-reveal">Answer: <span id="correctAnswerText${i}"></span></div>
+        <div id="feedback${i}" class="feedback"></div>
+      `;
+
+      quizContainer.appendChild(questionDiv);
+    });
+
+    // ────────────────────────────────────────────────────────────────────────
+    // 4) HANDLE “Submit” CLICK: checkAnswer()
+    // ────────────────────────────────────────────────────────────────────────
+    function checkAnswer(i, correct) {
+      const userInput = document
+        .getElementById(`answer${i}`)
+        .value.trim()
+        .toLowerCase();
+      const feedback = document.getElementById(`feedback${i}`);
+
+      if (userInput === correct) {
+        // If they haven’t already gotten it correct before, increase score:
+        if (!answeredCorrectly[i]) {
+          score++;
+          answeredCorrectly[i] = true;
+          // Hide the “Show Answer” button because they already know it
+          document.getElementById(`showBtn${i}`).style.display = "none";
+        }
+        feedback.textContent = "✅ Correct! You’re a Wi-Fi wizard!";
+        feedback.style.color = "#4ade80";
+      } else {
+        feedback.textContent = "❌ Nope. Try again, legend!";
+        feedback.style.color = "#f87171";
+      }
+    }
+
+    // ────────────────────────────────────────────────────────────────────────
+    // 5) HANDLE “Show Answer” CLICK: showAnswer()
+    // ────────────────────────────────────────────────────────────────────────
+    function showAnswer(i, correct) {
+      // Only reveal if student has NOT already answered correctly AND hasn’t revealed before
+      if (!answeredCorrectly[i] && !answerRevealed[i]) {
+        // Display the correct answer text
+        document.getElementById(`correctAnswerText${i}`).textContent = correct;
+        document.getElementById(`answerReveal${i}`).style.display = "block";
+        answerRevealed[i] = true;
+        // Hide the Show Answer button (so they can’t reveal twice)
+        document.getElementById(`showBtn${i}`).style.display = "none";
+      }
+    }
+
+    // ────────────────────────────────────────────────────────────────────────
+    // 6) FINISH QUIZ BUTTON: showScore()
+    // ────────────────────────────────────────────────────────────────────────
+    function showScore() {
+      let message;
+      if (score === quizData.length) {
+        message = "💯 Perfect score! You're unstoppable!";
+      } else if (score > 15) {
+        message = "🔥 Great job! You're elite level.";
+      } else if (score > 10) {
+        message = "🚀 Solid effort! Keep grinding.";
+      } else {
+        message = "🧠 You’re learning. Review the course and try again!";
+      }
+      document.getElementById("score").innerHTML =
+        `You scored <strong>${score}/${quizData.length}</strong>.<br>` + message;
+      // Optionally, scroll the score into view:
+      document.getElementById("score").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
