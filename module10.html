@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="universal.css">
+  <title>Wi-Fi Hacking Course - Module 10: Fake Access Points & Evil Twin Attacks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 10: Fake Access Points & Evil Twin Attacks</h1>
+  </header>
+  <div class="container">
+    <h2>👻 Module 10: Fake Access Points & Evil Twin Attacks</h2>
+    <p>Welcome to the <span class="highlight">honey trap</span> zone! In this module, we’ll build our own fake Wi-Fi networks and lure unsuspecting victims. Think of it like building a haunted house with free internet and watching people walk in. Spooky, right? 🎃</p>
+
+    <h2>🔍 What is an Evil Twin Attack?</h2>
+    <p>An evil twin is a <strong>malicious Wi-Fi access point</strong> that looks like a legitimate one. When a device connects, you can capture data, hijack sessions, or even redirect them to fake login pages. Trick or treat, hacker-style. 🍬</p>
+
+    <h2>🧠 Real World Example</h2>
+    <p>Imagine you're in an airport. You see "FreeAirportWiFi" and connect. Little do you know, it’s actually our evil twin sitting two seats away with a hoodie and Kali Linux. 🧑‍💻✈️</p>
+
+    <h2>🛠️ Tools We’ll Use</h2>
+    <ul>
+      <li><code>airbase-ng</code> – To create a fake AP</li>
+      <li><code>dnsmasq</code> – For DHCP and DNS</li>
+      <li><code>hostapd</code> – Flexible tool for creating real-looking APs</li>
+      <li><code>ettercap</code> / <code>Bettercap</code> – For juicy man-in-the-middle data munching</li>
+    </ul>
+
+    <h2>🏗️ Setup: Creating the Fake AP</h2>
+    <p>Let’s get our evil twin up and running with <code>airbase-ng</code>:</p>
+    <pre><code>airbase-ng -e "FreeAirportWiFi" -c 6 wlan0mon</code></pre>
+
+    <p>This creates a fake AP named <span class="highlight">FreeAirportWiFi</span> on channel 6. Hook line and sinker!</p>
+
+    <h2>🧲 Real Demo Reminder</h2>
+    <div class="note">⚠️ Reminder: Students, try this in a safe environment like a lab. A Raspberry Pi and a spare phone can simulate a real-world trap. Or trick your smart toaster. We don’t judge. 😁</div>
+
+    <h2>🛡️ Captive Portal Option</h2>
+    <p>You can redirect victims to a fake login page using <code>dnsmasq</code> + <code>apache2</code>. Make it look like a Starbucks login and see who types what. ☕👀</p>
+
+    <h2>🌐 Example - DNS Redirection</h2>
+    <pre><code>iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080</code></pre>
+
+    <h2>📹 Bonus Tip</h2>
+    <p>Record user actions using <code>tcpdump</code> or Wireshark. No actual evil needed – just knowledge. 🎥</p>
+
+    <h2>💬 Funny Moment</h2>
+    <p>Student: "I made my evil twin say 'Get rekt, n00b!' when someone connects."<br>Instructor: "You're ready for DEFCON, my child." 😂</p>
+
+    <h2>🔒 Legal Ethics Reminder</h2>
+    <p><strong>NEVER deploy these attacks on real public networks.</strong> Always use test environments and get consent. You’re training to be a cyber wizard, not a cyber criminal. 🧙‍♂️</p>
+
+    <h2>📦 Summary</h2>
+    <ul>
+      <li>Fake APs are powerful for red teaming</li>
+      <li>airbase-ng and hostapd are go-to tools</li>
+      <li>Use captive portals to gather test credentials</li>
+    </ul>
+
+    <p>🎭 And that’s our grand trick for Module 10! Next, we get even sneakier in Module 11: <strong>Captive Portals & Credential Harvesting</strong> – where hackers become digital magicians. 🪄</p>
+
+    <div class="navigation-buttons">
+      <a href="module9.html">&laquo; Previous</a>
+      <a href="module11.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

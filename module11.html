@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 11: Captive Portals & Credential Harvesting</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 11: Captive Portals & Credential Harvesting</h1>
+  </header>
+  <div class="container">
+    <h2>🎯 Module 11: Captive Portals & Credential Harvesting</h2>
+    <p>Ever joined a public Wi-Fi and got greeted with a "Login to access internet" page? That’s a <span class="highlight">captive portal</span>. Now imagine if we made that page ourselves… and waited for someone to type in their secrets. 😈</p>
+
+    <h2>🧠 What is a Captive Portal?</h2>
+    <p>It’s a web page that forces users to interact with it before they get full network access. Starbucks uses it. Airports use it. <strong>Hackers weaponize it.</strong></p>
+
+    <h2>🍩 Real World Example</h2>
+    <p>You're at a coffee shop. You connect to "FreeCoffeeWiFi". A login page pops up. You enter your email and password without thinking. But that Wi-Fi wasn’t real – it was <em>you</em> all along. Plot twist level: Netflix. 📺</p>
+
+    <h2>🛠️ Tools to Build One</h2>
+    <ul>
+      <li><code>dnsmasq</code> – To assign IPs and reroute DNS</li>
+      <li><code>apache2</code> – Host our login page</li>
+      <li><code>iptables</code> – Redirect web traffic to our portal</li>
+      <li><code>php</code> – To capture and store submitted credentials</li>
+    </ul>
+
+    <h2>📦 How It Works</h2>
+    <p>We redirect every request to a fake login page. The victim thinks it’s real. When they submit info, we log it. Then either cut access ("oops! Wi-Fi error") or redirect to a legit page.</p>
+
+    <h2>⚙️ Basic Setup</h2>
+    <pre><code>iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 80</code></pre>
+    <pre><code>service apache2 start</code></pre>
+    <p>Use a pre-made portal or design your own HTML+PHP login. Save to <code>/var/www/html</code>.</p>
+
+    <h2>🧲 Harvesting Credentials</h2>
+    <pre><code>&lt;?php
+file_put_contents("log.txt", $_POST['email'] . ":" . $_POST['password'] . "\n", FILE_APPEND);
+?&gt;</code></pre>
+    <p>That’s it. Every time someone submits their info, we log it in <code>log.txt</code>. It’s like phishing… but via Wi-Fi.</p>
+
+    <h2>📹 Real Demo Reminder</h2>
+    <div class="note">💡 Test this in a virtual lab or use a Raspberry Pi as the fake AP. NEVER use this in public – unless you're filming a Netflix documentary titled "How I Got Arrested in 3 Minutes". 🎬</div>
+
+    <h2>😅 Funny Moment</h2>
+    <p>Student: "I made my captive portal say 'Hack the planet!' above the login form."<br>Instructor: "That’s not hacking. That’s art." 🎨</p>
+
+    <h2>🔐 Legal Reminder</h2>
+    <p>This is for ethical hacking only. Always get consent. Build it. Understand it. Use it only in labs or CTFs. Remember, with great power comes… yeah, that line. 🕷️</p>
+
+    <h2>📝 Summary</h2>
+    <ul>
+      <li>Captive portals trick users into submitting credentials</li>
+      <li>Use apache2 + PHP for simple portals</li>
+      <li>Redirect traffic using iptables and dnsmasq</li>
+    </ul>
+
+    <p>🎓 Now you're a Wi-Fi illusionist. Next up? <strong>Module 12: WPS Attacks</strong> – where we punch PINs like a hacker boxer. 🥊</p>
+
+    <div class="navigation-buttons">
+      <a href="module10.html">&laquo; Previous</a>
+      <a href="module12.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

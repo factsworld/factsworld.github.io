@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 4: Packet Sniffing & Handshake Capture</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #4ade80;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #60a5fa;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #4ade80;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #facc15;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 4: Packet Sniffing & Handshake Capture</h1>
+  </header>
+  <div class="container">
+    <h2>🎯 Module 4: Sniffing Packets Like a Pro</h2>
+    <p>Now that your hacker lab is set up, it's time to wear the digital trench coat and listen in on Wi-Fi conversations. Welcome to packet sniffing and handshake capturing — the core of Wi-Fi hacking 🔍.</p>
+
+    <h2>📦 What Is a Packet?</h2>
+    <p>Think of a packet as a digital envelope flying through the air, carrying messages between devices. We’re going to intercept them — legally — to understand what’s happening on the network.</p>
+
+    <h2>📡 Step 1: Enable Monitor Mode</h2>
+    <p>Start by putting your Wi-Fi adapter into monitor mode. This allows your adapter to listen to all traffic — even if it’s not meant for you.</p>
+    <pre><code>sudo airmon-ng start wlan0</code></pre>
+    <p>You’ll now have an interface like <code>wlan0mon</code>.</p>
+
+    <h2>🕵️ Step 2: Scan for Networks</h2>
+    <pre><code>sudo airodump-ng wlan0mon</code></pre>
+    <p>This will list nearby Wi-Fi networks. Look for:</p>
+    <ul>
+      <li><strong>BSSID</strong>: MAC address of the router</li>
+      <li><strong>Channel</strong>: The channel the network is using (you’ll need this)</li>
+      <li><strong>Encryption</strong>: Look for WPA2 (most common and hackable)</li>
+    </ul>
+
+    <h2>📡 Step 3: Target and Capture the Handshake</h2>
+    <p>Let’s focus on one network and capture its handshake (the key exchange when a device connects):</p>
+    <pre><code>sudo airodump-ng --bssid [TARGET_BSSID] -c [CHANNEL] -w capture wlan0mon</code></pre>
+    <p>This saves the handshake to a file. But how do we force a device to reconnect and give us a handshake?</p>
+
+    <h2>💣 Step 4: Deauth Attack (Disconnect Trick)</h2>
+    <p>Let’s boot a device off the network so it reconnects — and gives us the handshake:</p>
+    <pre><code>sudo aireplay-ng --deauth 10 -a [TARGET_BSSID] wlan0mon</code></pre>
+    <p>This sends 10 deauth packets to the router. When a user reconnects, boom 💥 — you get the handshake.</p>
+    <div class="note">😄 Note: You’re not causing harm — just a gentle digital nudge for learning purposes!</div>
+
+    <h2>✅ How Do I Know the Handshake Worked?</h2>
+    <p>You’ll see something like <span class="highlight">"WPA handshake: [BSSID]"</span> in the top-right corner of your airodump window. That’s your golden ticket 🎫.</p>
+
+    <h2>🧪 Real-World Example</h2>
+    <p>Imagine a coffee shop. Their network is <code>COFFEE_FREEWIFI</code>. You target it, kick off a user (like Bob with his MacBook), and catch the handshake as he reconnects to check his crypto portfolio. Sorry Bob. 🥲</p>
+
+    <h2>🔒 Ethics Reminder</h2>
+    <p>Never target real networks without permission. For testing, use your own Wi-Fi or a dummy router at home.</p>
+
+    <h2>📁 Summary</h2>
+    <ul>
+      <li>Monitor mode lets you sniff packets like a digital detective</li>
+      <li>Airodump-ng helps you identify and target Wi-Fi networks</li>
+      <li>Capture WPA handshakes by forcing reconnections with deauth attacks</li>
+      <li>Handshakes are the keys we’ll crack in the next module 🔐</li>
+    </ul>
+
+    <p>🎉 Great job! In <strong>Module 5 – Cracking WPA2 Passwords</strong>, we’ll take our handshake file and try breaking the password like a true cyber ninja. Stay tuned!</p>
+
+    <div class="navigation-buttons">
+      <a href="module3.html">&laquo; Previous</a>
+      <a href="module5.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 2: Wi-Fi Basics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="universal.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #4ade80;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #60a5fa;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #4ade80;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #facc15;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 2: Wi-Fi Basics</h1>
+  </header>
+  <div class="container">
+    <h2>🌐 Module 2: Understanding Wi-Fi Basics</h2>
+    <p>Welcome back, hacker-in-training! Before we dive into the fun stuff like packet sniffing and handshakes, you need to speak the language of Wi-Fi — and trust me, it's not just shouting "Why-Fi no work?" at your router.</p>
+
+    <h2>📡 SSID, BSSID, and MAC Addresses</h2>
+    <ul>
+      <li><strong>SSID (Service Set Identifier)</strong>: The fancy name for your Wi-Fi network name. You know, the one you named "FBI Surveillance Van" just to mess with your neighbors.</li>
+      <li><strong>BSSID (Basic Service Set Identifier)</strong>: This is the MAC address (hardware address) of the Wi-Fi access point. It’s unique to every router/AP.</li>
+      <li><strong>MAC Address</strong>: A 48-bit identifier for a network interface. Looks like <code>00:1A:2B:3C:4D:5E</code>. Like your device’s digital fingerprint.</li>
+    </ul>
+
+    <h2>📶 Channels and Frequencies</h2>
+    <p>Wi-Fi runs on different frequencies (think: roads) and channels (think: lanes on those roads).</p>
+    <ul>
+      <li><strong>2.4 GHz</strong>: Longer range, slower speed, more crowded (like a free public beach)</li>
+      <li><strong>5 GHz</strong>: Shorter range, faster speed, more channels = less interference</li>
+      <li><strong>6 GHz (Wi-Fi 6E)</strong>: The new hotshot — faster, cleaner, and future-proof</li>
+    </ul>
+
+    <div class="note">🎯 Real-world tip: When hacking, choose a less crowded channel. Tools like <code>airodump-ng</code> show channel numbers. Stick to channels 1, 6, or 11 on 2.4GHz — they don’t overlap.</div>
+
+    <h2>🔒 Wi-Fi Security Protocols</h2>
+    <p>Time to meet the Wi-Fi security family — the good, the bad, and the obsolete:</p>
+    <ul>
+      <li><strong>WEP (Wired Equivalent Privacy)</strong>: More like Worthless Encryption Protocol. Can be cracked in minutes. Used only in museums and old coffee machines.</li>
+      <li><strong>WPA (Wi-Fi Protected Access)</strong>: A step up, but still vulnerable. Uses TKIP which is now considered weak.</li>
+      <li><strong>WPA2</strong>: The standard for over a decade. Secure if using strong passwords.</li>
+      <li><strong>WPA3</strong>: The latest and greatest, but not widely adopted yet. Harder to crack, but still researchable!</li>
+    </ul>
+
+    <h2>🧪 How Wi-Fi Communication Works</h2>
+    <p>Let’s simplify it:</p>
+    <ol>
+      <li>Your device says, “Hey router, are you there?”</li>
+      <li>The router replies, “Yep, let’s connect. Here’s some info.”</li>
+      <li>You handshake (negotiate encryption), and voilà — Netflix starts buffering again.</li>
+    </ol>
+    <p>This handshake process is where hacking magic happens — we can <strong>capture and analyze these packets</strong> to extract passwords or impersonate access points. But more on that later 😉</p>
+
+    <div class="note">💡 Fun Fact: You don’t need to be connected to a network to see its handshake. Just listen at the right time (like a digital ninja).</div>
+
+    <h2>✅ Summary</h2>
+    <ul>
+      <li>SSID is the name, BSSID is the MAC of the access point</li>
+      <li>2.4GHz = long range, 5GHz = fast & clean</li>
+      <li>WEP is trash, WPA2 is decent, WPA3 is new kid on the block</li>
+      <li>We’ll use the handshake process to break into networks (ethically!)</li>
+    </ul>
+
+    <p>Next up: <strong>Module 3 – Setting Up Your Lab</strong>. We’ll install everything, test your adapter, and make sure you’re ready to roll like a pro.</p>
+
+    <div class="navigation-buttons">
+      <a href="module1.html">&laquo; Previous</a>
+      <a href="module3.html">Next &raquo;</a>
+    </div>
+  </div>
+  
+  
+</body>
+</html>

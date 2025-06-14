@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wi-Fi Hacking Course - Module 13: KRACK Attack</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #0f1117;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      color: #38bdf8;
+      font-weight: 800;
+      font-size: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    p {
+      margin-top: 10px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      display: block;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 13: KRACK Attack</h1>
+  </header>
+  <div class="container">
+    <h2>🔓 What is KRACK?</h2>
+    <p><span class="highlight">KRACK</span> stands for <strong>Key Reinstallation Attack</strong>. It’s like the Wi-Fi handshake betraying you — a vulnerability in the WPA2 protocol that allows attackers to reinstall the encryption key, effectively decrypting your Wi-Fi traffic.</p>
+    <p>Imagine someone sneaking into your secret handshake club and repeating the handshake until they get all your secrets. Not cool, right? 😬</p>
+
+    <h2>🧐 How Does It Work?</h2>
+    <p>When a client connects to a Wi-Fi network, the router and client perform a 4-way handshake to confirm keys. KRACK tricks the client into reinstalling the same encryption key by replaying handshake messages. This lets the attacker decrypt, replay, and even forge packets.</p>
+
+    <h2>🛠️ Tools Needed</h2>
+    <ul>
+      <li><code>airmon-ng</code> – Enable monitor mode</li>
+      <li><code>airodump-ng</code> – Capture handshake packets</li>
+      <li><code>krackattacks-scripts</code> – Scripts by the researchers to test the attack</li>
+      <li>Linux with patched kernel or custom tools (e.g., <code>Reaver</code> may not help here)</li>
+    </ul>
+
+    <h2>⚙️ Step-by-Step Walkthrough</h2>
+    <p>Note: This is a simplified overview. Actual KRACK exploitation is complex and hardware-dependent.</p>
+
+    <ol>
+      <li>Put your wireless card into monitor mode:</li>
+      <pre><code>sudo airmon-ng start wlan0</code></pre>
+
+      <li>Capture handshake packets on the target network:</li>
+      <pre><code>sudo airodump-ng --bssid [TARGET_BSSID] -c [CHANNEL] -w capture wlan0mon</code></pre>
+
+      <li>Once you capture a 4-way handshake (you’ll see a message), proceed to launch KRACK attack scripts that replay handshake messages to force key reinstallations.</li>
+
+      <li>Use <code>krackattacks-scripts</code> (available on GitHub) to automate replay and decrypt packets:</li>
+      <pre><code>git clone https://github.com/vanhoefm/krackattacks-scripts.git
+cd krackattacks-scripts
+sudo ./krack_attack --iface wlan0mon --target [TARGET_MAC]</code></pre>
+
+      <li>If successful, you can decrypt traffic and possibly inject packets!</li>
+    </ol>
+
+    <h2>⚠️ Real-World Impact</h2>
+    <p>KRACK was huge news in 2017 — it affected most WPA2 devices worldwide, including phones, laptops, routers. Vendors patched the vulnerabilities, but unpatched devices remain vulnerable.</p>
+    <p>So remember: <strong>keep your devices updated!</strong> Otherwise, KRACK might still be knocking on your Wi-Fi door.</p>
+
+    <h2>😂 Humor Break</h2>
+    <p>Wi-Fi router: “I swear I’m secure!”<br>KRACK attacker: “Hold my handshake replay…” 🤹‍♂️</p>
+
+    <h2>🛡️ Defense Tips</h2>
+    <ul>
+      <li>Update your router and device firmware regularly.</li>
+      <li>Use HTTPS and VPNs — encryption above Wi-Fi helps protect your data.</li>
+      <li>Disable Wi-Fi when not in use.</li>
+    </ul>
+
+    <h2>📌 Summary</h2>
+    <ul>
+      <li>KRACK exploits WPA2 handshake flaws to decrypt Wi-Fi traffic.</li>
+      <li>It tricks devices into reinstalling encryption keys.</li>
+      <li>Still relevant if your devices are not patched.</li>
+    </ul>
+
+    <p>Ready for the next adventure? <strong>Module 14: Router Firmware Exploits</strong> – breaking in where your Wi-Fi can’t see. 🐍</p>
+
+    <div class="navigation-buttons">
+      <a href="module12.html">&laquo; Previous</a>
+      <a href="module14.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

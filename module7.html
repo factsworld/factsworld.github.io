@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 7: Captive Portals & Phishing Tricks</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 7: Captive Portals & Phishing Tricks</h1>
+  </header>
+  <div class="container">
+    <h2>🎣 Module 7: Captive Portals & Phishing Tricks</h2>
+    <p>Ever connected to public Wi-Fi and got redirected to a login page? That’s a <span class="highlight">Captive Portal</span>. And guess what? Hackers can create fake ones too—super convincing and ultra sneaky. 😏</p>
+
+    <h2>📖 What is a Captive Portal?</h2>
+    <p>A captive portal is a web page that users must interact with before gaining full access to the internet. In Evil Twin attacks, we use this to trick users into giving up passwords, emails, or even OTPs!</p>
+
+    <h2>🔧 Tools to Create Captive Portals</h2>
+    <ul>
+      <li><code>wifi-phisher</code> – comes with pre-made templates (Facebook, router login, etc.)</li>
+      <li><code>CaptiveFlask</code> – customizable fake portals</li>
+      <li><code>nodogsplash</code> – used in real hotspots, tweak it for phishing</li>
+    </ul>
+
+    <h2>🎭 Real World Example – Bob Tries to Login</h2>
+    <p>You create a fake AP with the SSID <code>"Free_Airport_WiFi"</code>. Bob connects and gets redirected to a “Login to get access” page that looks like the airport’s Wi-Fi portal. He enters his email and phone number. And boom 💥—harvested.</p>
+
+    <h2>📱 Building Your Own Captive Portal</h2>
+    <ol>
+      <li>Use <code>wifi-phisher</code> or <code>hostapd + dnsmasq</code> to set up your evil AP</li>
+      <li>Create a simple HTML login form</li>
+      <li>Capture credentials to a local file or database</li>
+      <li>Redirect to “success” page so they don’t get suspicious</li>
+    </ol>
+
+    <pre><code>// Example: capture.php
+file_put_contents("creds.txt", $_POST['email'] . ":" . $_POST['password'] . "\n", FILE_APPEND);</code></pre>
+
+    <h2>🧠 Tips to Make it Believable</h2>
+    <ul>
+      <li>Use logos from real companies (but don’t be evil)</li>
+      <li>Match fonts and UI from target sites</li>
+      <li>Delay the redirect a bit to feel more "real"</li>
+    </ul>
+
+    <h2>🚨 Ethical Reminder</h2>
+    <p>This is for **educational use only**. Never trick real users without permission. Stay legal, stay sharp. 🎓</p>
+
+    <h2>📦 Summary</h2>
+    <ul>
+      <li>Captive portals are effective for phishing</li>
+      <li>Tools like <code>wifi-phisher</code> simplify the process</li>
+      <li>Always test in lab environments only</li>
+    </ul>
+
+    <p>👊 That’s it for Module 7! In <strong>Module 8 – Sniffing & MITM Attacks</strong>, we’ll explore what happens after someone connects — we sniff, spy, and inject. 🔍👀</p>
+
+    <div class="navigation-buttons">
+      <a href="module6.html">&laquo; Previous</a>
+      <a href="module8.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

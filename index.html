@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wi-Fi Hacking Mastery Course</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #0f1117;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    header h1 {
+      margin: 0;
+      color: #38bdf8;
+      font-weight: 800;
+      font-size: 2.5rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+      font-weight: 600;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+    ul {
+      text-align: left;
+      padding-left: 1.5em;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .enroll-btn {
+      margin-top: 30px;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      background-color: #38bdf8;
+      color: #0f1117;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .enroll-btn:hover {
+      background-color: #22a3db;
+    }
+    .more-btn {
+      background: none;
+      border: none;
+      color: #38bdf8;
+      font-size: 1rem;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .hidden-modules {
+      display: none;
+      margin-top: 10px;
+    }
+    footer {
+      margin-top: 60px;
+      padding: 20px 0;
+      background: #1f222e;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #a6adb4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Wi-Fi Hacking Mastery Course</h1>
+  </header>
+
+  <div class="container">
+    <p>
+      Welcome to the ultimate hands-on Wi-Fi Hacking Mastery course—designed from scratch
+      to take you from “What is Wi-Fi?” all the way to advanced, real-world attacks.
+      Throughout these beautifully crafted modules, you’ll learn how to crack WEP &amp; WPA2,
+      perform Evil Twin and KRACK attacks, exploit router firmware, conduct post-exploitation,
+      and much more. Each lesson is explained in a clear, student-friendly style with a
+      dash of humor to keep you engaged. Ready to become a Wi-Fi ninja? Let’s roll.
+    </p>
+
+    <button class="enroll-btn" onclick="location.href='module1.html'">
+      Enroll Now &raquo;
+    </button>
+
+    <div class="overview">
+      <h2>📚 Course Syllabus</h2>
+      <ul>
+        <li><strong>Module 1:</strong> Introduction to Wi-Fi Hacking &amp; Ethics</li>
+        <li><strong>Module 2:</strong> Wi-Fi Basics &amp; Protocols</li>
+        <li><strong>Module 3:</strong> Setting Up Your Lab (Kali &amp; Adapters)</li>
+        <li><strong>Module 4:</strong> Packet Sniffing &amp; Handshake Capture</li>
+        <li><strong>Module 5:</strong> Cracking WPA2 Passwords</li>
+        <li><strong>Module 6:</strong> Evil Twin Attacks</li>
+      </ul>
+
+      <div id="moreModules" class="hidden-modules">
+        <ul>
+          <li><strong>Module 7:</strong> Captive Portals &amp; Phishing Tricks</li>
+          <li><strong>Module 8:</strong> Sniffing &amp; MITM Attacks</li>
+          <li><strong>Module 9:</strong> Packet Injection &amp; Frame Manipulation</li>
+          <li><strong>Module 10:</strong> Rogue APs &amp; Advanced Cloning</li>
+          <li><strong>Module 11:</strong> Captive Portal Credential Harvesting</li>
+          <li><strong>Module 12:</strong> WPS Attacks (Pixie Dust, Reaver, OneShot)</li>
+          <li><strong>Module 13:</strong> KRACK Attack (Key Reinstallation)</li>
+          <li><strong>Module 14:</strong> Router Firmware Exploits</li>
+          <li><strong>Module 15:</strong> Post-Exploitation Techniques</li>
+          <li><strong>Quiz Challenge:</strong> Final Challenge &amp; Quiz</li>
+        </ul>
+      </div>
+
+      <button class="more-btn" onclick="showMore()">Show More ▼</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Wi-Fi Hacking Mastery • All Rights Reserved
+  </footer>
+
+  <script>
+    function showMore() {
+      const more = document.getElementById('moreModules');
+      more.style.display = 'block';
+      document.querySelector('.more-btn').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

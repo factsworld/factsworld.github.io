@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wi-Fi Hacking Course - Module 5: Cracking WPA2 Passwords</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f1117;
+      color: #eaeaea;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #f472b6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background: #f472b6;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #4ade80;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 5: Cracking WPA2 Passwords</h1>
+  </header>
+  <div class="container">
+    <h2>🔓 Module 5: Breaking the Code – WPA2 Password Cracking</h2>
+    <p>Welcome to the hacking part you’ve been waiting for — cracking the Wi-Fi password from the handshake you captured earlier. You’re now entering the <strong>brute force arena</strong>. 🥊</p>
+
+    <h2>📁 What You Need</h2>
+    <ul>
+      <li><code>.cap</code> file from Module 4 (your handshake)</li>
+      <li>A strong wordlist (like rockyou.txt)</li>
+      <li>Patience… and maybe a coffee ☕</li>
+    </ul>
+
+    <h2>🧠 What Is a Wordlist Attack?</h2>
+    <p>You try a list of passwords one-by-one until one unlocks the Wi-Fi. Think of it like trying every key on a keyring. Except your CPU/GPU is doing the work for you while you pretend to be busy. 😌</p>
+
+    <h2>⚙️ Cracking with aircrack-ng</h2>
+    <p>The simplest tool to start with is <code>aircrack-ng</code>.</p>
+    <pre><code>aircrack-ng capture.cap -w /usr/share/wordlists/rockyou.txt</code></pre>
+    <p>If your password is in the list — boom 💥 you’ll see the key displayed like:</p>
+    <pre><code>KEY FOUND! [ supersecret123 ]</code></pre>
+    <div class="note">🔐 Note: rockyou.txt is a great start, but for real-world routers, you might need better lists.</div>
+
+    <h2>🦾 Want to Go Faster? Try Hashcat!</h2>
+    <p>If you’ve got a decent GPU, <code>hashcat</code> is like aircrack-ng on steroids.</p>
+
+    <h3>Step 1: Convert .cap to .hccapx</h3>
+    <pre><code>cap2hccapx capture.cap capture.hccapx</code></pre>
+
+    <h3>Step 2: Run Hashcat</h3>
+    <pre><code>hashcat -m 2500 capture.hccapx rockyou.txt --force</code></pre>
+    <p>You’ll get real-time stats, speed, and hopefully a password at the end. Just try not to fry your GPU. 🔥</p>
+
+    <h2>🧪 Real-World Fun</h2>
+    <p>You cracked Bob’s <code>COFFEE_FREEWIFI</code> network from earlier. Turns out his password was <span class="highlight">latte4life</span>. ☕💻
+    Lesson? People use dumb passwords. Hackers thrive on that laziness.</p>
+
+    <h2>📦 Summary</h2>
+    <ul>
+      <li>Use aircrack-ng for easy cracking with wordlists</li>
+      <li>Hashcat is faster and GPU-based for big lists</li>
+      <li>Rockyou.txt is good, but custom or regional lists are better</li>
+      <li>Passwords like <span class="highlight">12345678</span> still exist... thanks humans</li>
+    </ul>
+
+    <p>🎉 You did it! In <strong>Module 6 – Evil Twin Attacks</strong>, we’ll flip the game — instead of cracking a network, we’ll create a fake one to trap users. 🎣</p>
+     
+    <h2>🎥 Live Hacking Demo</h2>
+    <p>See the full WPA2 password cracking process in action. Sit back, take notes, and enjoy the chaos. 👨‍💻💥</p>
+    <video controls style="width: 100%; max-width: 900px; border-radius: 12px; box-shadow: 0 0 15px #00ff8877; margin-top: 20px;">
+      <source src="newhackingvideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+
+    <div class="navigation-buttons">
+      <a href="module4.html">&laquo; Previous</a>
+      <a href="module6.html">Next &raquo;</a>
+    </div>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wi-Fi Hacking Course - Module 15: Post-Exploitation Techniques</title>
+  <link rel="stylesheet" href="universal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #0f1117;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+    header {
+      background: #1f222e;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      color: #38bdf8;
+      font-weight: 800;
+      font-size: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #fbbf24;
+      margin-top: 40px;
+    }
+    p {
+      margin-top: 10px;
+    }
+    code, pre {
+      background: #1e1e2e;
+      color: #a6e3a1;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      display: block;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+    }
+    .highlight {
+      background: #38bdf8;
+      color: #0f1117;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .note {
+      background: #f472b6;
+      color: #1f2937;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Module 15: Post-Exploitation Techniques</h1>
+  </header>
+  <div class="container">
+    <h2>🔓 What Happens After You’re In?</h2>
+    <p>Congratulations! You’ve hacked the Wi-Fi and are inside the network. But don’t just sit there like a tourist—now it’s time to explore, maintain access, and grab some goodies! 🎒🔑</p>
+
+    <h2>🔑 Maintaining Access: Don’t Get Kicked Out!</h2>
+    <p>Hackers love persistence. They don’t want to do all this work again tomorrow. Common techniques include:</p>
+    <ul>
+      <li>Installing backdoors or reverse shells</li>
+      <li>Creating rogue admin users on routers or connected devices</li>
+      <li>Setting up scheduled tasks or cron jobs for automatic access</li>
+    </ul>
+
+    <h2>🌐 Network Exploration</h2>
+    <p>Once inside, you want to map out the network:</p>
+    <ul>
+      <li><code>nmap -sn 192.168.1.0/24</code> — Scan live hosts on the network</li>
+      <li><code>arp -a</code> — List known devices and IPs</li>
+      <li>Use tools like <code>netcat</code>, <code>ssh</code>, or <code>telnet</code> to try connecting to devices</li>
+    </ul>
+
+    <h2>📁 Data Exfiltration</h2>
+    <p>What’s the point without the loot? Whether it’s sniffed passwords, confidential files, or just embarrassing memes, here’s how hackers grab it:</p>
+    <ul>
+      <li>Sniffing traffic with <code>Wireshark</code> or <code>tcpdump</code></li>
+      <li>Man-in-the-middle attacks to intercept credentials</li>
+      <li>Transferring files out via FTP, HTTP, or even email</li>
+    </ul>
+
+    <h2>🛠️ Tools for Post-Exploitation</h2>
+    <ul>
+      <li><code>Metasploit Framework</code> — Automate exploits and payloads</li>
+      <li><code>Netcat</code> — The Swiss Army knife for TCP/UDP connections</li>
+      <li><code>Wireshark</code> — Traffic analysis</li>
+      <li><code>Responder</code> — Captures credentials on Windows networks</li>
+    </ul>
+
+    <h2>😂 Funny Bit</h2>
+    <p>Hacker: “I’m inside the castle!”<br>Student: “Now what?”<br>Hacker: “Time to throw a party and invite myself to the fridge!” 🥳🍕</p>
+
+    <h2>📌 Summary</h2>
+    <ul>
+      <li>Persistence is key — backdoors keep you in</li>
+      <li>Map the network like a pro</li>
+      <li>Sniff and steal data carefully (and legally, of course!)</li>
+    </ul>
+
+    <p>Ready for <strong>Module 16: Covering Your Tracks</strong>? Because no hacker wants to be found! 🕵️‍♂️</p>
+
+    <div class="navigation-buttons">
+      <a href="module14.html">&laquo; Previous</a>
+      <a href="module16.html">Finish &raquo;</a>
+    </div>
+    
+    
+  </div>
+</body>
+</html>
